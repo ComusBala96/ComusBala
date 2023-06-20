@@ -13,26 +13,26 @@ export default function ProfileHeader({ update, forceUpdate }) {
   const profileRef = useRef(null);
   useEffect(() => {
     setLoading(true);
-    if (token) {
+    // if (token) {
       axios.get("/show/cover").then((res) => {
         if (res.data.status === 200) {
           setCover(res.data.cover);
           setLoading(false);
         }
       });
-    }
-  }, [update, token]);
+    // }
+  }, [update]);
   useEffect(() => {
     setLoading(true);
-    if (token) {
+    // if (token) {
       axios.get("/show/profile").then((res) => {
         if (res.data.status === 200) {
           setProfile(res.data.profile);
           setLoading(false);
         }
       });
-    }
-  }, [update, token]);
+    // }
+  }, [update]);
   const handleCoverUpdateClick = () => {
     coverRef.current.click();
   };

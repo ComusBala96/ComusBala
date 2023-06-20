@@ -28,16 +28,68 @@ Using the Project Execute the following commands and the Docker will build and r
 ```bash
   docker-compose up --build
 ```
+Then.
+```bash
+docker ps
+```
+Copy your laravel container id
 
 After that,
 
 ```bash
- docker exec -i < Uour_Container_Id > php artisan migrate
+ docker exec -i < Your_Container_Id > php artisan migrate
 ```
 
 This will migrate the migration files to database and,
 
 Enjoy!!
+
+# Or
+Start your mysql and apache server then
+
+Enter the laravel directory
+
+```bash
+ cd laravel-backend-api
+```
+
+Then,
+
+```bash
+ composer install
+```
+
+After that,
+
+```bash
+ php artisan migrate
+```
+
+Finaly
+
+```bash
+ php artisan serve
+```
+
+And,
+
+```bash
+ cd react-news-app
+```
+
+Then,
+
+```bash
+ npm install
+```
+
+After that,
+
+```bash
+ npm start
+```
+
+Enjoy!
 
 ## Project Summary:
 
