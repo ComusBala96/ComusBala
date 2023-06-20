@@ -29,9 +29,9 @@ export default function CurrentNewsPost({
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
       }
-      alert(data.errors);
+      alert("Api is expired! Please change Api key?");
     } catch (error) {
-      alert(error);
+      alert("Api is expired! Please change Api key?");
     }
   };
   const fetchNewsApiSearchData = async (url) => {
@@ -42,9 +42,9 @@ export default function CurrentNewsPost({
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
       }
-      alert(data.errors);
+      alert("Api is expired! Please change Api key?");
     } catch (error) {
-      alert(error);
+      alert("Api is expired! Please change Api key?");
     }
   };
   useEffect(() => {

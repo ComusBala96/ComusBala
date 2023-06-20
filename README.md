@@ -35,9 +35,7 @@ Then.
 docker ps
 ```
 
-Copy your laravel container id
-
-After that,
+After that, Copy your laravel container id and run the command
 
 ```bash
  docker exec -i < Your_Container_Id > php artisan migrate
@@ -64,11 +62,6 @@ Then,
 ```
 
 After that,
-
-#### Change .env file
-
-- DB_HOST=mysql to DB_HOST=127.0.0.1
-- DB_PASSWORD=root to DB_PASSWORD=
 
 ```bash
  php artisan migrate

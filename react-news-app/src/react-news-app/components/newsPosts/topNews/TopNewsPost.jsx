@@ -30,9 +30,9 @@ export default function TopNewsPost({
           setLoading(false);
           setNews((prev) => [...prev, ...data.articles]);
         }
-        alert(data.errors);
+        alert("Api is expired! Please change Api key?");
       } catch (error) {
-        alert(error);
+        alert("Api is expired! Please change Api key?");
       }
     };
     fetchGNewsApiData(
@@ -60,9 +60,9 @@ export default function TopNewsPost({
           setLoading(false);
           setNews((prev) => [...prev, ...data.articles]);
         }
-        alert(data.errors);
+        alert("Api is expired! Please change Api key?");
       } catch (error) {
-        alert(error);
+        alert("Api is expired! Please change Api key?");
       }
     };
     fetchGNewsApiSearchData(
