@@ -106,7 +106,6 @@ export default function DeleteUser({ update, forceUpdate }) {
             });
             localStorage.removeItem("auth_token");
             localStorage.removeItem("auth_name");
-            forceUpdate();
             navigate("/");
           }
         } else {

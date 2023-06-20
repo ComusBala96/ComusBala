@@ -26,11 +26,11 @@ export default function TopNewsPost({
       try {
         const res = await fetch(url);
         const data = await res.json();
-        if (data) {
+        if (data.articles) {
           setLoading(false);
           setNews((prev) => [...prev, ...data.articles]);
         }
-        alert(data.error);
+        alert(data.errors);
       } catch (error) {
         alert(error);
       }
@@ -56,11 +56,11 @@ export default function TopNewsPost({
       try {
         const res = await fetch(url);
         const data = await res.json();
-        if (data) {
+        if (data.articles) {
           setLoading(false);
           setNews((prev) => [...prev, ...data.articles]);
         }
-        alert(data.error);
+        alert(data.errors);
       } catch (error) {
         alert(error);
       }
@@ -92,7 +92,9 @@ export default function TopNewsPost({
           setLoading(true);
           setPage((prev) => prev + 1);
         }
-      } catch (error) {}
+      } catch (error) {
+        alert(error);
+      }
     };
     window.addEventListener("scroll", handleInfinateScroll);
     return () => window.removeEventListener("scroll", handleInfinateScroll);

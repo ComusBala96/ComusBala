@@ -25,11 +25,11 @@ export default function CurrentNewsPost({
     try {
       const res = await fetch(url);
       const data = await res.json();
-      if (data) {
+      if (data.articles) {
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
       }
-      alert(data.error);
+      alert(data.errors);
     } catch (error) {
       alert(error);
     }
@@ -38,11 +38,11 @@ export default function CurrentNewsPost({
     try {
       const res = await fetch(url);
       const data = await res.json();
-      if (data) {
+      if (data.articles) {
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
       }
-      alert(data.error);
+      alert(data.errors);
     } catch (error) {
       alert(error);
     }
@@ -71,7 +71,9 @@ export default function CurrentNewsPost({
         setLoading(true);
         setPage((prev) => prev + 1);
       }
-    } catch (error) {}
+    } catch (error) {
+      alert(error);
+    }
   };
   useEffect(() => {
     window.addEventListener("scroll", handleInfinateScroll);
