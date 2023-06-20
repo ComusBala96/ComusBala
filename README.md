@@ -28,10 +28,13 @@ Using the Project Execute the following commands and the Docker will build and r
 ```bash
   docker-compose up --build
 ```
+
 Then.
+
 ```bash
 docker ps
 ```
+
 Copy your laravel container id
 
 After that,
@@ -45,6 +48,7 @@ This will migrate the migration files to database and,
 Enjoy!!
 
 # Or
+
 Start your mysql and apache server then
 
 Enter the laravel directory
@@ -60,6 +64,11 @@ Then,
 ```
 
 After that,
+
+#### Change .env file
+
+- DB_HOST=mysql to DB_HOST=127.0.0.1
+- DB_PASSWORD=root to DB_PASSWORD=
 
 ```bash
  php artisan migrate
