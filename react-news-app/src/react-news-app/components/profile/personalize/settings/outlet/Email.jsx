@@ -3,7 +3,7 @@ import { BiDotsHorizontal } from "react-icons/bi";
 import Loading from "../../../../../loading/Loading";
 import axios from "axios";
 import swal from "sweetalert";
-export default function Email() {
+export default function Email({ update, forceUpdate }) {
   const [errors, setErrors] = useState("");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState("");
@@ -23,7 +23,7 @@ export default function Email() {
         }
       });
     }
-  }, [token]);
+  }, [token, update]);
   const handleEmailInput = (e) => {
     setUserEmail({ ...userEmail, [e.target.name]: e.target.value });
   };
@@ -45,8 +45,9 @@ export default function Email() {
           icon: "success",
           timer: 1000,
         });
+        setUserEmail("");
         setErrors("");
-        reload();
+        forceUpdate();
       } else {
         setLoading(false);
         setErrors(res.data.errors);
@@ -56,11 +57,6 @@ export default function Email() {
       swal({ title: "Warning", text: error.message, icon: "error" });
     }
   };
-  function reload() {
-    setTimeout(() => {
-      window.location.reload(true);
-    }, 200);
-  }
 
   if (loading) {
     return <Loading />;

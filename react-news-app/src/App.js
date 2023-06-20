@@ -326,26 +326,45 @@ export default function App() {
           />
 
           <Route path="/settings" element={<Settings />}>
-            <Route index element={<Account />} />
-            <Route path="/settings/email" element={<Email />} />
-            <Route path="/settings/password" element={<Password />} />
-            <Route path="/settings/privacy" element={<Privacy />} />
+            <Route
+              index
+              element={<Account update={update} forceUpdate={forceUpdate} />}
+            />
+            <Route
+              path="/settings/email"
+              element={<Email update={update} forceUpdate={forceUpdate} />}
+            />
+            <Route
+              path="/settings/password"
+              element={<Password update={update} forceUpdate={forceUpdate} />}
+            />
+            <Route
+              path="/settings/privacy"
+              element={<Privacy update={update} forceUpdate={forceUpdate} />}
+            />
             <Route
               path="/settings/email-notificaiton"
-              element={<EmailNotification />}
+              element={
+                <EmailNotification update={update} forceUpdate={forceUpdate} />
+              }
             />
             <Route
               path="/settings/user-information"
-              element={<UserDetails />}
+              element={
+                <UserDetails update={update} forceUpdate={forceUpdate} />
+              }
             />
-            <Route path="/settings/delete-account" element={<DeleteUser />} />
+            <Route
+              path="/settings/delete-account"
+              element={<DeleteUser update={update} forceUpdate={forceUpdate} />}
+            />
           </Route>
 
-          <Route path="/activity" element={<Activity />} />
+          <Route path="/activity" element={<Activity update={update} />} />
 
-          <Route path="/favourite" element={<Favourite />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/save" element={<Save />} />
+          <Route path="/favourite" element={<Favourite update={update} />} />
+          <Route path="/history" element={<History update={update} />} />
+          <Route path="/save" element={<Save update={update} />} />
 
           <Route path="/login" element={<Login forceUpdate={forceUpdate} />} />
           <Route

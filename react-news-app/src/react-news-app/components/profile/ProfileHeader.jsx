@@ -56,7 +56,6 @@ export default function ProfileHeader({ update, forceUpdate }) {
         setErrors("");
       } else {
         setLoading(false);
-
         setErrors(res.data.errors.cover_photo[0]);
       }
     } catch (error) {

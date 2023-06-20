@@ -4,7 +4,7 @@ import { BiDotsHorizontal } from "react-icons/bi";
 import Loading from "../../../../../loading/Loading";
 import axios from "axios";
 import swal from "sweetalert";
-export default function DeleteUser() {
+export default function DeleteUser({ update, forceUpdate }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("auth_token");
@@ -82,7 +82,7 @@ export default function DeleteUser() {
         }
       });
     }
-  }, [token]);
+  }, [update, token]);
   const handleAccountDelete = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -106,6 +106,7 @@ export default function DeleteUser() {
             });
             localStorage.removeItem("auth_token");
             localStorage.removeItem("auth_name");
+            forceUpdate();
             navigate("/");
           }
         } else {
@@ -124,11 +125,18 @@ export default function DeleteUser() {
     }
   };
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <div className="col-span-12 md:col-span-9 md:pt-2">
+          <Loading />;
+        </div>
+      </>
+    );
   }
   return (
     <>
       <div className="col-span-12 md:col-span-9 md:pt-2">
+        {loading && <Loading />}
         <div className=" bg-white shadow-sm">
           <div className="border-b py-1 ">
             <div className="flex justify-between items-center mx-4">

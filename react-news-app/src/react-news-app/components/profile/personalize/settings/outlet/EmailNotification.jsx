@@ -1,6 +1,6 @@
 import React from "react";
 import { BiDotsHorizontal } from "react-icons/bi";
-export default function EmailNotification() {
+export default function EmailNotification({ update, forceUpdate }) {
   return (
     <>
       <div className="col-span-12 md:col-span-9 md:pt-2">

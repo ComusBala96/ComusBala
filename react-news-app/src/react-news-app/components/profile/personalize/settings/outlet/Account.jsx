@@ -4,7 +4,7 @@ import { BiDotsHorizontal } from "react-icons/bi";
 import { BsCamera } from "react-icons/bs";
 import swal from "sweetalert";
 import axios from "axios";
-export default function Account() {
+export default function Account({ update, forceUpdate }) {
   const [errors, setErrors] = useState("");
   const profileRef = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,7 @@ export default function Account() {
         }
       });
     }
-  }, [token]);
+  }, [update, token]);
   useEffect(() => {
     if (token) {
       setLoading(true);
@@ -51,7 +51,7 @@ export default function Account() {
         }
       });
     }
-  }, [token]);
+  }, [update, token]);
   useEffect(() => {
     if (token) {
       axios.get("/show/user/public/information").then((res) => {
@@ -72,7 +72,7 @@ export default function Account() {
         }
       });
     }
-  }, [token]);
+  }, [update, token]);
   useEffect(() => {
     if (token) {
       axios.get("/show/user/private/information").then((res) => {
@@ -97,7 +97,7 @@ export default function Account() {
         }
       });
     }
-  }, [token]);
+  }, [update, token]);
   const handlePublicInput = (e) => {
     setUserPublicInfo({ ...userPublicInfo, [e.target.name]: e.target.value });
   };
@@ -121,7 +121,7 @@ export default function Account() {
           timer: 1000,
         });
         setErrors("");
-        reload();
+        forceUpdate();
       } else {
         setLoading(false);
         setErrors(res.data.errors);
@@ -158,7 +158,7 @@ export default function Account() {
           timer: 1000,
         });
         setErrors("");
-        reload();
+        forceUpdate();
       } else {
         setLoading(false);
         setErrors(res.data.errors);
@@ -188,7 +188,7 @@ export default function Account() {
           timer: 1000,
         });
         setErrors("");
-        reload();
+        forceUpdate();
       } else {
         setLoading(false);
         setErrors(res.data.errors.profile_photo[0]);
@@ -198,11 +198,7 @@ export default function Account() {
       swal({ title: "Warning", text: error.message, icon: "error" });
     }
   };
-  function reload() {
-    setTimeout(() => {
-      window.location.reload(true);
-    }, 200);
-  }
+
   if (loading) {
     return (
       <>

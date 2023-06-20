@@ -50,7 +50,7 @@ services:
         - 3306:3306
       networks:
         - db
-        
+
     phpmyadmin:
       image: phpmyadmin/phpmyadmin
       environment:

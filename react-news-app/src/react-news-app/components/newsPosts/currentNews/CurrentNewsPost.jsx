@@ -25,17 +25,27 @@ export default function CurrentNewsPost({
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setLoading(false);
-      setNews((prev) => [...prev, ...data.articles]);
-    } catch (error) {}
+      if (data) {
+        setLoading(false);
+        setNews((prev) => [...prev, ...data.articles]);
+      }
+      alert(data.error);
+    } catch (error) {
+      alert(error);
+    }
   };
   const fetchNewsApiSearchData = async (url) => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setLoading(false);
-      setNews(data.articles);
-    } catch (error) {}
+      if (data) {
+        setLoading(false);
+        setNews((prev) => [...prev, ...data.articles]);
+      }
+      alert(data.error);
+    } catch (error) {
+      alert(error);
+    }
   };
   useEffect(() => {
     setLoading(true);

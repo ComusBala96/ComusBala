@@ -6,7 +6,7 @@ import { AiFillGithub } from "react-icons/ai";
 import { FiTwitter, FiFacebook } from "react-icons/fi";
 import { BsInstagram } from "react-icons/bs";
 import axios from "axios";
-export default function UserDetails() {
+export default function UserDetails({ update, forceUpdate }) {
   const [profile, setProfile] = useState("");
   const token = localStorage.getItem("auth_token");
   const [userDetails, setUserDetails] = useState({
@@ -32,7 +32,7 @@ export default function UserDetails() {
         }
       });
     }
-  }, [token]);
+  }, [token, update]);
   useEffect(() => {
     if (token) {
       axios.get("/show/profile").then((res) => {
@@ -41,7 +41,7 @@ export default function UserDetails() {
         }
       });
     }
-  }, [token]);
+  }, [token, update]);
   if (userDetails.message) {
     return (
       <>

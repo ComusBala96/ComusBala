@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserPrivateInfo extends Model
 {
     use HasFactory;
-    protected $table = 'user_private_info';
+    protected $table = 'user_private_infos';
     protected $fillable = [
         'date_of_birth',
         'status',

@@ -4,7 +4,7 @@ import { BiDotsHorizontal } from "react-icons/bi";
 import Loading from "../../../../../loading/Loading";
 import axios from "axios";
 import swal from "sweetalert";
-export default function Password() {
+export default function Password({ update, forceUpdate }) {
   const [errors, setErrors] = useState("");
   const [loading, setLoading] = useState(false);
   const [userPassword, setUserPassword] = useState({
@@ -33,8 +33,9 @@ export default function Password() {
           icon: "success",
           timer: 1000,
         });
+        setUserPassword("");
         setErrors("");
-        reload();
+        forceUpdate();
       } else if (res.data.status === 422) {
         setLoading(false);
         setErrors(res.data.errors);
@@ -47,11 +48,6 @@ export default function Password() {
       swal({ title: "Warning", text: error.message, icon: "error" });
     }
   };
-  function reload() {
-    setTimeout(() => {
-      window.location.reload(true);
-    }, 200);
-  }
   if (loading) {
     return <Loading />;
   }
