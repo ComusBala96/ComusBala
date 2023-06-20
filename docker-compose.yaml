@@ -1,0 +1,68 @@
+version: '4.20'
+services:
+
+    frontend:
+      build:
+        context: ./react-news-app
+        dockerfile: Dockerfile
+      ports:
+        - 3000:3000
+      volumes:
+        - ./frontend:/app/react-news-app
+      depends_on:
+        - backend
+      networks:
+        - app
+
+    backend:
+      build:
+        context: ./laravel-backend-api
+        dockerfile: Dockerfile
+      environment:
+        DB_HOST: mysql
+        DB_DATABASE: news_app
+        DB_ROOT_PASSWORD: root
+        DB_PASSWORD: root
+        DB_USERNAME: root
+      ports:
+        - 8000:8000
+      volumes:
+        - ./backend:/app/laravel-backend-api
+      depends_on:
+        - mysql
+      networks:
+        - app
+        - db
+
+    mysql:
+      image: mysql
+      tty: true
+      environment:
+        MYSQL_ROOT_HOST: "%"
+        MYSQL_DATABASE: news_app
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_PASSWORD: root
+        MYSQL_USERNAME: root
+        MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      volumes:
+        - .dbdata:/var/lib/mysql/
+      ports:
+        - 3306:3306
+      networks:
+        - db
+        
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      environment:
+        - PMA_HOST=mysql
+        - PMA_PORT=3306
+      depends_on:
+        - mysql
+      ports:
+        - 8443:80
+      networks:
+        - db
+networks:
+  app:
+    driver: bridge
+  db:
