@@ -5,6 +5,7 @@ import { FaShare } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import moment from "moment";
 import Loading from "../../../loading/Loading";
+import { v4 } from "uuid";
 export default function CurrentNewsPost({
   pageSize,
   country,
@@ -73,11 +74,11 @@ export default function CurrentNewsPost({
           {loading && <Loading />}
           <div className="mb-4 mt-2 mx-2 ">
             <div className=" md:w-96 lg:w-[480px] mx-auto space-y-4 ">
-              {news.map((item, i) => {
+              {news.map((item) => {
                 return (
                   <>
                     <div
-                      key={i}
+                      key={v4()}
                       className="p-2 bg-gray-50  shadow-md rounded-md cursor-pointer"
                     >
                       <h1 className="py-1 font-serif">{item.title}</h1>
@@ -135,11 +136,11 @@ export default function CurrentNewsPost({
       <div className="col-span-12 md:col-span-7">
         <div className="mb-4 mt-2 mx-2 ">
           <div className=" md:w-96 lg:w-[480px] mx-auto space-y-4 ">
-            {news.map((item, i) => {
+            {news.map((item) => {
               return (
                 <>
                   <div
-                    key={i}
+                    key={v4()}
                     className="p-2 bg-gray-50  shadow-md rounded-md cursor-pointer"
                   >
                     <h1 className="py-1 font-serif">{item.title}</h1>

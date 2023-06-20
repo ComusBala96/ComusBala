@@ -66,6 +66,8 @@ export default function TopNewsPost({
     window.addEventListener("scroll", handleInfinateScroll);
     return () => window.removeEventListener("scroll", handleInfinateScroll);
   }, []);
+
+  console.log(news);
   if (qurey) {
     return (
       <>

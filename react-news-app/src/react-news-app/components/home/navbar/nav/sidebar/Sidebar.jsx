@@ -16,7 +16,7 @@ export default function Sidebar({ sidebarMenu, setSidebarMenu, sideMenuRef }) {
   const [subMenu2, setSubMenu2] = useState(true);
   const user_name = localStorage.getItem("auth_name");
   const [profile, setProfile] = useState("");
-  useEffect((user_name) => {
+  useEffect(() => {
     if (user_name) {
       axios.get("/show/profile").then((res) => {
         if (res.data.status === 200) {
@@ -24,7 +24,8 @@ export default function Sidebar({ sidebarMenu, setSidebarMenu, sideMenuRef }) {
         }
       });
     }
-  }, []);
+  }, [user_name]);
+  
   return (
     <>
       <div

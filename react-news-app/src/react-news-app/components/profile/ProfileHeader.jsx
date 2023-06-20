@@ -23,7 +23,6 @@ export default function ProfileHeader({ update, forceUpdate }) {
     }
   }, [update, token]);
   useEffect(() => {
-    const token = localStorage.getItem("auth_token");
     setLoading(true);
     if (token) {
       axios.get("/show/profile").then((res) => {

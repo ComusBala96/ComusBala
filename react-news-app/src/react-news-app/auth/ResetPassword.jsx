@@ -7,7 +7,7 @@ export default function ResetPassword() {
         <div className="flex justify-center items-center h-[100vh]">
           <div className="ring-2 ring-gray-100 rounded-md bg-gray-50 pb-10 w-[700px] shadow">
             <div className="pt-3 mx-6 flex justify-between">
-              <span className="text-lg">Reset Password</span>
+              <span className="text-lg">Recover Password</span>
             </div>
             <hr className="mb-5 mt-3" />
             <form>
