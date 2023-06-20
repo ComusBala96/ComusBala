@@ -30,6 +30,7 @@ export default function LogInfo({
         }
       });
     }
+    setLoading(false);
   }, [update, token]);
   const handleLogout = (e) => {
     e.preventDefault();
