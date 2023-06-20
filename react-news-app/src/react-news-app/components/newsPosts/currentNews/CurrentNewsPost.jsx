@@ -5,7 +5,6 @@ import { FaShare } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import moment from "moment";
 import Loading from "../../../loading/Loading";
-import { v4 } from "uuid";
 export default function CurrentNewsPost({
   pageSize,
   country,
@@ -20,6 +19,8 @@ export default function CurrentNewsPost({
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(1);
   const Api = `https://newsapi.org/v2/`;
+
+  const apiKey = "fdccf632e7d44b7abdf88daba2e61b3b"; // if api expired then change the api key here
   const fetchNewsApiData = async (url) => {
     try {
       const res = await fetch(url);
@@ -39,17 +40,17 @@ export default function CurrentNewsPost({
   useEffect(() => {
     setLoading(true);
     fetchNewsApiData(
-      `${Api}${sources}?country=${country}&category=${category}&apiKey=6f4cd031220546ca84bd07ad611774fd`
+      `${Api}${sources}?country=${country}&category=${category}&apiKey=${apiKey}`
     );
-  }, [page]);
+  }, [Api, sources, country, category, page, apiKey]);
   useEffect(() => {
     setLoading(true);
     fetchNewsApiSearchData(
       `${Api}everything?${
         qurey ? `q=${qurey}&` : `q=${category}&`
-      }from=2023-06-17&to=2023-06-18&sortBy=publishedAt&apiKey=6f4cd031220546ca84bd07ad611774fd`
+      }from=2023-06-17&to=2023-06-18&sortBy=publishedAt&apiKey=${apiKey}`
     );
-  }, [qurey]);
+  }, [Api, qurey, category, apiKey]);
 
   const handleInfinateScroll = () => {
     const windowHeight = document.documentElement.scrollHeight;
@@ -74,11 +75,11 @@ export default function CurrentNewsPost({
           {loading && <Loading />}
           <div className="mb-4 mt-2 mx-2 ">
             <div className=" md:w-96 lg:w-[480px] mx-auto space-y-4 ">
-              {news.map((item) => {
+              {news.map((item, i) => {
                 return (
                   <>
                     <div
-                      key={v4()}
+                      key={i}
                       className="p-2 bg-gray-50  shadow-md rounded-md cursor-pointer"
                     >
                       <h1 className="py-1 font-serif">{item.title}</h1>
@@ -136,11 +137,11 @@ export default function CurrentNewsPost({
       <div className="col-span-12 md:col-span-7">
         <div className="mb-4 mt-2 mx-2 ">
           <div className=" md:w-96 lg:w-[480px] mx-auto space-y-4 ">
-            {news.map((item) => {
+            {news.map((item, i) => {
               return (
                 <>
                   <div
-                    key={v4()}
+                    key={i}
                     className="p-2 bg-gray-50  shadow-md rounded-md cursor-pointer"
                   >
                     <h1 className="py-1 font-serif">{item.title}</h1>

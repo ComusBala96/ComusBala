@@ -19,7 +19,7 @@ export default function TopNewsPost({
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(1);
   const Api = `https://gnews.io/api/v4/`;
-
+  const apiKey = "7f769195797b0b58d8447626c58093fc"; // if api expired then change the api key here
   useEffect(() => {
     setLoading(true);
     const fetchGNewsApiData = async (url) => {
@@ -31,9 +31,20 @@ export default function TopNewsPost({
       } catch (error) {}
     };
     fetchGNewsApiData(
-      `${Api}${sources}?category=${category}&lang=${language}&country=${country}&from=${from}&to=${to}&max=${pageSize}&page=${page}&apikey=1c7ce43692209c0b98e7244cad907a0f`
+      `${Api}${sources}?category=${category}&lang=${language}&country=${country}&from=${from}&to=${to}&max=${pageSize}&page=${page}&apikey=${apiKey}`
     );
-  }, [Api, sources, category, language, country, from, to, pageSize, page]);
+  }, [
+    Api,
+    sources,
+    category,
+    language,
+    country,
+    from,
+    to,
+    pageSize,
+    page,
+    apiKey,
+  ]);
   useEffect(() => {
     setLoading(true);
     const fetchGNewsApiSearchData = async (url) => {
@@ -47,9 +58,19 @@ export default function TopNewsPost({
     fetchGNewsApiSearchData(
       `${Api}${sources}?search?${
         qurey ? `q=${qurey}&` : `q=${category}&`
-      }category=${category}&lang=${language}&country=${country}&max=${pageSize}&page=${page}&apikey=1c7ce43692209c0b98e7244cad907a0f`
+      }category=${category}&lang=${language}&country=${country}&max=${pageSize}&page=${page}&apikey=${apiKey}`
     );
-  }, [Api, sources, qurey, category, language, country, pageSize, page]);
+  }, [
+    Api,
+    qurey,
+    sources,
+    category,
+    language,
+    country,
+    pageSize,
+    page,
+    apiKey,
+  ]);
 
   useEffect(() => {
     const handleInfinateScroll = () => {
@@ -66,8 +87,6 @@ export default function TopNewsPost({
     window.addEventListener("scroll", handleInfinateScroll);
     return () => window.removeEventListener("scroll", handleInfinateScroll);
   }, []);
-
-  console.log(news);
   if (qurey) {
     return (
       <>
