@@ -19,7 +19,7 @@ export default function TopNewsPost({
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(1);
   const Api = `https://gnews.io/api/v4/`;
-  const apiKey = "7f769195797b0b58d8447626c58093fc"; // if api expired then change the api key here
+  const apiKey = "7f769195797b0b58d8447626c58093fc"; // if Api has been expired then change the api key here
   useEffect(() => {
     setLoading(true);
     const fetchGNewsApiData = async (url) => {
@@ -30,9 +30,9 @@ export default function TopNewsPost({
           setLoading(false);
           setNews((prev) => [...prev, ...data.articles]);
         }
-        alert("Api is expired! Please change Api key?");
+        alert("Api has been expired! Please change Api key?");
       } catch (error) {
-        alert("Api is expired! Please change Api key?");
+        alert("Api has been expired! Please change Api key?");
       }
     };
     fetchGNewsApiData(
@@ -60,9 +60,9 @@ export default function TopNewsPost({
           setLoading(false);
           setNews((prev) => [...prev, ...data.articles]);
         }
-        alert("Api is expired! Please change Api key?");
+        alert("Api has been expired! Please change Api key?");
       } catch (error) {
-        alert("Api is expired! Please change Api key?");
+        alert("Api has been expired! Please change Api key?");
       }
     };
     fetchGNewsApiSearchData(

@@ -20,7 +20,7 @@ export default function CurrentNewsPost({
   const [page, setPage] = useState(1);
   const Api = `https://newsapi.org/v2/`;
 
-  const apiKey = "fdccf632e7d44b7abdf88daba2e61b3b"; // if api expired then change the api key here
+  const apiKey = "fdccf632e7d44b7abdf88daba2e61b3b"; // if Api has been expired then change the api key here
   const fetchNewsApiData = async (url) => {
     try {
       const res = await fetch(url);
@@ -29,9 +29,9 @@ export default function CurrentNewsPost({
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
       }
-      alert("Api is expired! Please change Api key?");
+      alert("Api has been expired! Please change Api key?");
     } catch (error) {
-      alert("Api is expired! Please change Api key?");
+      alert("Api has been expired! Please change Api key?");
     }
   };
   const fetchNewsApiSearchData = async (url) => {
@@ -42,9 +42,9 @@ export default function CurrentNewsPost({
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
       }
-      alert("Api is expired! Please change Api key?");
+      alert("Api has been expired! Please change Api key?");
     } catch (error) {
-      alert("Api is expired! Please change Api key?");
+      alert("Api has been expired! Please change Api key?");
     }
   };
   useEffect(() => {
