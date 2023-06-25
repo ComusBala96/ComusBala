@@ -95,15 +95,15 @@ Enjoy!
 
 ## Project Summary:
 
-This is an React as frontend and Laravel as an backend News App. Using this app, User can create their account and personilized it.
+This is an React as frontend and Laravel as backend News App. Using this app, User can create their account and personilize it.
 
 The News App basically can provide a stream of News. User can find category wise news and also can search source wise news.
 
-There are some functionality is not working but i have finish that work in future work.
+There are some functionality is not working but i have finish this work in my future work.
 
 or
 
-#### Any one can implement that future work is free to work.
+#### Any one can implement this future work is free to work.
 
 ## Changelog
 
