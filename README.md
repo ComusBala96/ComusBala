@@ -61,7 +61,7 @@ Then,
  composer install
 ```
 
-After that,
+After that, create database with name news_app and run command
 
 ```bash
  php artisan migrate
