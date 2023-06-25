@@ -59,7 +59,7 @@ export default function HeaderNav({
     <>
       <div className="md:mx-4 ">
         <div className="flex justify-between items-center px-2 py-1 md:px-0 md:py-2">
-          <h1 className="">{moment().format("MMMM Do YYYY, h:mm A")}</h1>
+          <h1 className="">{moment().format("MMMM, Do YYYY, h:mm A")}</h1>
           <div className="flex items-center gap-4 md:gap-10">
             <div className="flex items-center">
               <MdOutlineLanguage title="Language" className="cursor-pointer" />
