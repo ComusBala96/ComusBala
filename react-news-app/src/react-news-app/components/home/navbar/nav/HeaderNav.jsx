@@ -4,6 +4,7 @@ import { MdOutlineLanguage } from "react-icons/md";
 import { BsGrid, BsArrowUpRight } from "react-icons/bs";
 import LogInfo from "./modebar/loginfo/LogInfo";
 import Modebar from "./modebar/Modebar";
+import moment from "moment";
 export default function HeaderNav({
   modeMenu,
   setModeMenu,
@@ -58,7 +59,7 @@ export default function HeaderNav({
     <>
       <div className="md:mx-4 ">
         <div className="flex justify-between items-center px-2 py-1 md:px-0 md:py-2">
-          <h1 className="">Tuesday, 30 May 2023</h1>
+          <h1 className="">{moment().format("MMMM Do YYYY, h:mm:ss a")}</h1>
           <div className="flex items-center gap-4 md:gap-10">
             <div className="flex items-center">
               <MdOutlineLanguage title="Language" className="cursor-pointer" />
