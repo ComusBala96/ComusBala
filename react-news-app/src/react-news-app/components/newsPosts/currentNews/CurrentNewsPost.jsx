@@ -28,8 +28,9 @@ export default function CurrentNewsPost({
       if (data.articles) {
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
+      } else {
+        alert("Api has been expired! Please change Api key?");
       }
-      alert("Api has been expired! Please change Api key?");
     } catch (error) {
       alert("Api has been expired! Please change Api key?");
     }
@@ -41,8 +42,9 @@ export default function CurrentNewsPost({
       if (data.articles) {
         setLoading(false);
         setNews((prev) => [...prev, ...data.articles]);
+      } else {
+        alert("Api has been expired! Please change Api key?");
       }
-      alert("Api has been expired! Please change Api key?");
     } catch (error) {
       alert("Api has been expired! Please change Api key?");
     }
