@@ -61,7 +61,10 @@ Then,
  composer install
 ```
 
-<p align="center">.ENV Configaration</p>
+# .env Configuration
+
+Change DB_HOST=mysql to DB_HOST=127.0.0.1
+
 After that, create database with name news_app and run command
 
 ```bash
