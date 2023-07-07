@@ -63,7 +63,11 @@ Then,
 
 # .env Configuration
 
-Change DB_HOST=mysql to DB_HOST=127.0.0.1
+#### Change DB Configuration =>
+
+- DB_HOST=mysql to DB_HOST=Your host,
+- DB_USERNAME=root to DB_USERNAME=your username,
+- DB_PASSWORD=root to DB_PASSWORD=your password,
 
 After that, create database with name news_app and run command
 
